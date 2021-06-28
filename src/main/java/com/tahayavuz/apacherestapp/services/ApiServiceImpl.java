@@ -2,6 +2,7 @@ package com.tahayavuz.apacherestapp.services;
 
 import com.tahayavuz.api.domain.Contributors;
 import com.tahayavuz.api.domain.Repositories;
+import com.tahayavuz.api.domain.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -19,9 +20,6 @@ public class ApiServiceImpl implements ApiService {
     private RestTemplate restTemplate;
 
     private final String api_url;
-    List<String> usernameMaxContributor = new ArrayList<>();
-    String username;
-    String loginName;
 
     public ApiServiceImpl(RestTemplate restTemplate, @Value("${api.url}") String api_url) {
         this.restTemplate = restTemplate;
@@ -89,6 +87,28 @@ public class ApiServiceImpl implements ApiService {
                         LinkedHashMap::new));
 
         return hm;
+    }
+
+    @Override
+    public User getUsers(int repo, int userIndex) {
+        Set<String> userList = new HashSet<>();
+        //take usernames
+        Map<String, Integer> m = new HashMap<>();
+        m.putAll(getContributors(repo));
+
+        userList.addAll(m.keySet());
+
+        String[] userArray = userList.toArray(new String[userList.size()]);
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder
+                .fromUriString(api_url + "/users/" + userArray[userIndex]);
+
+        User myUser = restTemplate.getForObject(uriBuilder.toUriString(), User.class);
+
+        WriteFile fileObject = new WriteFile();
+        fileObject.write(getRepos().get(repo).toString(),myUser,m.get( userArray[userIndex]));
+
+        return myUser;
     }
 
     public static <K, V> K getKey(Map<K, V> map, V value)
