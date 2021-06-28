@@ -1,5 +1,6 @@
 package com.tahayavuz.apacherestapp.services;
 
+import com.tahayavuz.api.domain.Contributors;
 import com.tahayavuz.api.domain.Repositories;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
@@ -10,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class ApiServiceImpl implements ApiService {
@@ -58,6 +60,37 @@ public class ApiServiceImpl implements ApiService {
         return maxForkRepoList;
     }
 
+    @Override
+    public Map<String, Integer> getContributors(int repo) {
+
+        Map<String, Integer>  hm = new HashMap();
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder
+                .fromUriString(api_url + "/repos/apache/" + getRepos().get(repo).toString() + "/contributors");
+
+        ResponseEntity<List<Contributors>> responseEntity =
+                restTemplate.exchange(
+                        uriBuilder.toUriString(),
+                        HttpMethod.GET,
+                        null,
+                        new ParameterizedTypeReference<List<Contributors>>() {
+                        }
+                );
+        List<Contributors> contributorsData = responseEntity.getBody();
+
+        for (int i = 0; i < contributorsData.size(); i++) {
+            hm.put(contributorsData.get(i).getLogin(), contributorsData.get(i).getContributions());
+        }
+        hm = sortByValue(hm);
+        hm = hm.entrySet().stream()
+                .limit(10)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (v1, v2) -> v1,
+                        LinkedHashMap::new));
+
+        return hm;
+    }
+
     public static <K, V> K getKey(Map<K, V> map, V value)
     {
         for (Map.Entry<K, V> entry: map.entrySet())
@@ -67,5 +100,21 @@ public class ApiServiceImpl implements ApiService {
             }
         }
         return null;
+    }
+
+    //sort elements by values
+    Map<String, Integer> sortByValue(Map map) {
+        List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(map.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return o2.getValue().compareTo(o1.getValue());
+            }
+        });
+        //prints the sorted HashMap
+        Map<String, Integer> sortedMap = new LinkedHashMap<String, Integer>();
+        for (Map.Entry<String, Integer> entry : list) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }
+        return sortedMap;
     }
 }
