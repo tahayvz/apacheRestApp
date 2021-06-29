@@ -44,19 +44,13 @@ public class ApiServiceImpl implements ApiService {
                         }
                 );
         List<Repositories> repoList = responseEntity.getBody();
+        repoList.forEach(x -> hm.put(x.getName(), x.getForks_count()));
 
-        for (int i = 0; i < repoList.size(); i++) {
-            hm.put(repoList.get(i).getName(), repoList.get(i).getForks_count());
-        }
-        List<Integer> forksCountsList = new ArrayList<Integer>(hm.values());
-        Collections.sort(forksCountsList);
-        //get 5 max fork repos
-        forksCountsList = forksCountsList.subList(repoList.size() - 5, repoList.size());
-        for (int i = 0; i < forksCountsList.size(); i++) {
-            maxForkRepoList.add(getKey(hm, forksCountsList.get(i)));
-        }
-
-        return maxForkRepoList;
+        return (List<Object>) hm.values().stream()
+                .sorted(Comparator.reverseOrder())
+                .limit(5)
+                .map(x -> getKey(hm, x))
+                .collect(Collectors.toList());
     }
 
     @Override

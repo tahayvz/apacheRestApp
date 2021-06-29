@@ -24,3 +24,6 @@
 'repo': httpd user: covener company: null location: null contributions: 1087
 'repo': httpd user: minfrin company: null location: null contributions: 850
 'repo': httpd user: trawick company: Emptyhammock location: Raleigh, NC contributions: 2255
+'repo': ofbiz user: jacopoc company: HotWax Systems location: null contributions: 2748
+'repo': ofbiz user: eigood company: Brainfood location: null contributions: 1804
+'repo': struts-maven user: lukaszlenart company: SoftwareMill location: Sucha Beskidzka, Poland contributions: 62
