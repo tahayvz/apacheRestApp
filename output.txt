@@ -1,3 +1,26 @@
 
 'repo': ofbiz user: jacopoc company: HotWax Systems location: null contributions: 2748
 'repo': ofbiz user: eigood company: Brainfood location: null contributions: 1804
+'repo': ofbiz user: jonesde company: David E. Jones Consulting location: Spokane, WA contributions: 1319
+'repo': ofbiz user: bibryam company: Red Hat location: England contributions: 215
+'repo': ofbiz user: lektran company: null location: null contributions: 1169
+'repo': ofbiz user: adrian-crum company: Sandglass Software location: Loma Linda, CA contributions: 1632
+'repo': ofbiz user: JacquesLeRoux company: http://www.les7arts.com/ location: Poussan Hérault France contributions: 5571
+'repo': ofbiz user: hansbak company: AntWebsystems Co.,Ltd location: Chiang mai, Thailand contributions: 2385
+'repo': ofbiz user: andrewzeneski company: Null Pointer, Inc. location: New York, NY contributions: 686
+'repo': ofbiz user: dixitdeepak company: HotWax Software location: India contributions: 379
+'repo': lucenenet user: laimis company: Mediafly location: United States contributions: 124
+'repo': lucenenet user: geobmx540 company: null location: San Francisco contributions: 56
+'repo': lucenenet user: synhershko company: BigData Boutique  location: Israel contributions: 356
+'repo': lucenenet user: conniey company: @Microsoft  location: null contributions: 215
+'repo': lucenenet user: ccurrens company: null location: New York contributions: 59
+'repo': lucenenet user: Shazwazza company: Umbraco location: Sydney, Australia contributions: 171
+'repo': lucenenet user: Chand2048 company: Microsoft location: Redmond, WA contributions: 17
+'repo': lucenenet user: bodewig company: @innoq  location: Mönchengladbach, Germany contributions: 15
+'repo': lucenenet user: NightOwl888 company: null location: null contributions: 4434
+'repo': lucenenet user: rclabo company: GiftOasis LLC location: Chapel Hill NC contributions: 26
+'repo': httpd user: wrowe company: @vmware  location: Chicago IL metro contributions: 2485
+'repo': httpd user: rbowen company: Red Hat location: Lexington, KY contributions: 1430
+'repo': httpd user: covener company: null location: null contributions: 1087
+'repo': httpd user: minfrin company: null location: null contributions: 850
+'repo': httpd user: trawick company: Emptyhammock location: Raleigh, NC contributions: 2255

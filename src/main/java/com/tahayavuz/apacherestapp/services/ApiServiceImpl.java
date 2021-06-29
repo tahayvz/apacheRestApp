@@ -20,6 +20,7 @@ public class ApiServiceImpl implements ApiService {
     private RestTemplate restTemplate;
 
     private final String api_url;
+    List<Object> repoNames =new ArrayList<>();
 
     public ApiServiceImpl(RestTemplate restTemplate, @Value("${api.url}") String api_url) {
         this.restTemplate = restTemplate;
@@ -60,11 +61,13 @@ public class ApiServiceImpl implements ApiService {
 
     @Override
     public Map<String, Integer> getContributors(int repo) {
-
+        if(repoNames.isEmpty()){
+            repoNames.addAll( getRepos());
+        }
         Map<String, Integer>  hm = new HashMap();
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder
-                .fromUriString(api_url + "/repos/apache/" + getRepos().get(repo).toString() + "/contributors");
+                .fromUriString(api_url + "/repos/apache/" + repoNames.get(repo).toString() + "/contributors");
 
         ResponseEntity<List<Contributors>> responseEntity =
                 restTemplate.exchange(
@@ -106,7 +109,7 @@ public class ApiServiceImpl implements ApiService {
         User myUser = restTemplate.getForObject(uriBuilder.toUriString(), User.class);
 
         WriteFile fileObject = new WriteFile();
-        fileObject.write(getRepos().get(repo).toString(),myUser,m.get( userArray[userIndex]));
+        fileObject.write(repoNames.get(repo).toString(),myUser,m.get( userArray[userIndex]));
 
         return myUser;
     }
