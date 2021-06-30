@@ -1,2 +1,27 @@
 
-'repo': zookeeper user: fpj company: Pravega location: Barcelona contributions: 90
+'repo': zookeeper user: fpj company: Pravega location: Barcelona contributions: 67
+'repo': zookeeper user: tisonkun company: Peking University location: Guangzhou contributions: 18
+'repo': zookeeper user: rakeshadr company: Cloudera location: Bangalore contributions: 44
+'repo': zookeeper user: rgs1 company: Pinterest location: New York City contributions: 58
+'repo': zookeeper user: symat company: Cloudera location: Budapest, Hungary contributions: 29
+'repo': zookeeper user: phunt company: Cloudera Inc. location: Palo Alto, CA contributions: 145
+'repo': zookeeper user: tamaashu company: Cloudera location: Budapest, Hungary contributions: 15
+'repo': zookeeper user: arshadmohammad company: Huawei location: Bangalore contributions: 22
+'repo': zookeeper user: maoling company: null location: null contributions: 33
+'repo': zookeeper user: belugabehr company: null location: null contributions: 27
+'repo': camel user: chirino company: Red Hat location: Tampa, FL contributions: 215
+'repo': camel user: lburgazzoli company: Red Hat location: Piacenza, Italy contributions: 757
+'repo': camel user: janstey company: Red Hat location: Paradise, NL, Canada contributions: 448
+'repo': camel user: davsclaus company: Red Hat location: Denmark contributions: 13779
+'repo': camel user: zregvart company: Red Hat location: Berlin contributions: 334
+'repo': camel user: orpiske company: Red Hat location: Brno, Czech Republic contributions: 307
+'repo': camel user: nicolaferraro company: Red Hat location: Rome contributions: 285
+'repo': camel user: hekonsek company: null location: null contributions: 224
+'repo': camel user: WillemJiang company: null location: Beijing, China contributions: 1385
+'repo': camel user: gnodet company: Red Hat location: Caen, France contributions: 856
+'repo': httpd user: wrowe company: @vmware  location: Chicago IL metro contributions: 2255
+'repo': httpd user: rbowen company: Red Hat location: Lexington, KY contributions: 1403
+'repo': httpd user: kryton company: null location: null contributions: 134
+'repo': httpd user: dougm company: VMware location: San Francisco, CA contributions: 370
+'repo': httpd user: ylavic company: null location: null contributions: 850
+'repo': httpd user: rpluem company: null location: Germany contributions: 709

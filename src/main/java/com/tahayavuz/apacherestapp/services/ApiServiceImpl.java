@@ -73,9 +73,11 @@ public class ApiServiceImpl implements ApiService {
                 );
         List<Contributors> contributorsData = responseEntity.getBody();
 
-        for (int i = 0; i < contributorsData.size(); i++) {
-            hm.put(contributorsData.get(i).getLogin(), contributorsData.get(i).getContributions());
+        Iterator<Contributors> i1 = contributorsData.iterator();
+        while (i1.hasNext()) {
+            hm.put(i1.next().getLogin(), i1.next().getContributions());
         }
+
         hm = sortByValue(hm);
         hm = hm.entrySet().stream()
                 .limit(10)
