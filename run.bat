@@ -1,2 +1,1 @@
-cd target
-java -jar apacheRestApp-0.0.1-SNAPSHOT.jar
+java -jar target/apacheRestApp-0.0.1-SNAPSHOT.jar

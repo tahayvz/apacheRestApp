@@ -39,6 +39,11 @@ $ cd apacheRestApp
 $ mvn spring-boot:run
 ```
 
+Or you can click on the `run.bat` file
+
+### Output of application
+After running the project will create a file "output.txt" in target folder
+
 To get the code:
 -------------------
 Clone the repository:

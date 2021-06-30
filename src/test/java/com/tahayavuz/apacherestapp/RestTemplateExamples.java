@@ -10,13 +10,13 @@ public class RestTemplateExamples {
 
     @Test
     public void getRepositories() throws Exception {
-        String apiUrl = API_ROOT + "/orgs/apache/repos";
-
-        RestTemplate restTemplate = new RestTemplate();
-
-        JsonNode jsonNode = restTemplate.getForObject(apiUrl, JsonNode.class);
-
-        System.out.println("Response");
-        System.out.println(jsonNode.toString());
+//        String apiUrl = API_ROOT + "/orgs/apache/repos";
+//
+//        RestTemplate restTemplate = new RestTemplate();
+//
+//        JsonNode jsonNode = restTemplate.getForObject(apiUrl, JsonNode.class);
+//
+//        System.out.println("Response");
+//        System.out.println(jsonNode.toString());
     }
 }
