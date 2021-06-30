@@ -42,7 +42,7 @@ $ mvn spring-boot:run
 Or you can click on the `run.bat` file
 
 ### Output of application
-After running the project will create a file "output.txt" in target folder
+After running the project will create a file `output.txt` in the project directory
 
 To get the code:
 -------------------

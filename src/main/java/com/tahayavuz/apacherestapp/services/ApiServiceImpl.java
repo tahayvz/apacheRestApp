@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+import sun.reflect.generics.tree.Tree;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -58,7 +59,7 @@ public class ApiServiceImpl implements ApiService {
         if(repoNames.isEmpty()){
             repoNames.addAll( getRepos());
         }
-        Map<String, Integer>  hm = new HashMap();
+        Map<String, Integer>  hm = new LinkedHashMap<>();
 
         UriComponentsBuilder uriBuilder = UriComponentsBuilder
                 .fromUriString(api_url + "/repos/apache/" + repoNames.get(repo).toString() + "/contributors");
@@ -73,12 +74,13 @@ public class ApiServiceImpl implements ApiService {
                 );
         List<Contributors> contributorsData = responseEntity.getBody();
 
-        Iterator<Contributors> i1 = contributorsData.iterator();
-        while (i1.hasNext()) {
-            hm.put(i1.next().getLogin(), i1.next().getContributions());
+        Iterator<Contributors> itrContributorsData = contributorsData.iterator();
+        while (itrContributorsData.hasNext()) {
+            hm.put(itrContributorsData.next().getLogin(), itrContributorsData.next().getContributions());
         }
 
         hm = sortByValue(hm);
+
         hm = hm.entrySet().stream()
                 .limit(10)
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
@@ -90,9 +92,9 @@ public class ApiServiceImpl implements ApiService {
 
     @Override
     public User getUsers(int repo, int userIndex) {
-        Set<String> userList = new HashSet<>();
+        LinkedHashSet <String> userList = new LinkedHashSet <>();
         //take usernames
-        Map<String, Integer> m = new HashMap<>();
+        LinkedHashMap<String, Integer> m = new LinkedHashMap<>();
         m.putAll(getContributors(repo));
 
         userList.addAll(m.keySet());
